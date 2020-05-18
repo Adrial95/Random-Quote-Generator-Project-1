@@ -60,8 +60,9 @@ function getRandomColor () {
 var red = math.floor(math.random() * 256);
 var green = math.floor(math.random() * 256);
 var blue = math.floor(math.random() * 256);
-var colors = 'rgb(' + red +','+ green +', '+ blue +')';
-return getRandomColor();
+var colors = `rgb(${red},${green}, ${blue})`;
+document.body.style.backgroundColor = colors;
+
 };
 
 /***
@@ -91,6 +92,6 @@ html=`<p class="quote">${quote.quote}</p>`;
 
 /***
  * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
+ *
 ***/
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
