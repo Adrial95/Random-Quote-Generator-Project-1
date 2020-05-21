@@ -20,16 +20,19 @@ var quotes = [
 {quote: 'The greatest glory in living lies not in never falling, but in rising every time we fall.',
 source: '  Nelson Mandela',
 citation: 'https://blog.hubspot.com/sales/famous-quotes',
+year: 1995,
 },
 
 {quote:'The way to get started is to quit talking and begin doing.',
 source: ' Walt Disney',
 citation: 'https://blog.hubspot.com/sales/famous-quotes',
+year: 1985,
 },
 
  {quote: 'Your time is limited, so dont waste it living someone elses life. Dont be trapped by dogma.',
   source: ' steve Jobs',
   citation: 'https://blog.hubspot.com/sales/famous-quotes',
+  year: 2010,
 },
 
 {quote: 'If life were predictable it would cease to be life, and be without flavor.',
@@ -57,11 +60,11 @@ return quotes[randomNumber];
 //the function bellow generates a random color everytime a new quote loads//
 
 function getRandomColor () {
-var red = math.floor(math.random() * 256);
-var green = math.floor(math.random() * 256);
-var blue = math.floor(math.random() * 256);
+var red = Math.floor(Math.random() * 256);
+var green = Math.floor(Math.random() * 256);
+var blue = Math.floor(Math.random() * 256);
 var colors = `rgb(${red},${green}, ${blue})`;
-document.body.style.backgroundColor = colors;
+return document.body.style.background = colors;
 
 };
 
@@ -79,10 +82,14 @@ if (quote.citation) {
 if (quotes.source) {
   html+=`<span class="source">${quote.source}</span>`;
 }
+if (quotes.year) {
+  html+=`<span class="source">${quote.year}</span>`;
+}
 
 html=`<p class="quote">${quote.quote}</p>`;
     html+=`<p class="source">${quote.source}</p>`;
     html+= `<p class="citation">${quote.citation}<p/>`;
+    html+= `<p class="citation">${quote.year}<p/>`;
 
     html+='</p>';
     document.getElementById('quote-box').innerHTML = html;
@@ -92,6 +99,8 @@ html=`<p class="quote">${quote.quote}</p>`;
 
 /***
  * click event listener for the print quote button
- *
+ * the window.setInterval changes the quotes automatically every 6 seconds
 ***/
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener('click', getRandomColor, false);
+window.setInterval(printQuote, 6000);
