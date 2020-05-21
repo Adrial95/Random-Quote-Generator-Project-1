@@ -99,7 +99,9 @@ html=`<p class="quote">${quote.quote}</p>`;
 
 /***
  * click event listener for the print quote button
+ * click event listener for the get a random color button
  * the window.setInterval changes the quotes automatically every 6 seconds
+ * 
 ***/
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 document.getElementById('load-quote').addEventListener('click', getRandomColor, false);
